@@ -1,58 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Web Toko Buku BooSho
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+BooSho adalah platform toko buku digital berbasis web yang dikembangkan menggunakan framework Laravel 11. Proyek ini dibangun untuk memenuhi standar arsitektur perangkat lunak yang memisahkan hak akses pengguna (Role-Based Access Control) dan menyediakan jalur RESTful API yang terdokumentasi dengan rapi.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 1. Identitas Developer
+* Nama  : Reza Fairul Nizam
+* NIM   : 2305101022
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 2. Deskripsi & Fitur Aplikasi
+Aplikasi ini membagi sistem menjadi dua antarmuka dan hak akses utama:
+* Fitur Admin: Dapat mengakses antarmuka *Dashboard* untuk melihat pratinjau data, serta halaman *Katalog* untuk melakukan operasi CRUD (Create, Read, Update, Delete) pada data buku secara langsung melalui UI Web.
+* Fitur User: Dapat mendaftar akun baru, *login*, melihat pratinjau buku, memasukkan buku ke dalam Keranjang Belanja, dan melakukan *Checkout* yang akan memotong stok buku di database secara otomatis.
+* Fitur API: Menyediakan 6 *endpoint* RESTful API utama (termasuk fitur pencarian *Search*) yang telah melewati 10 skenario pengujian, baik skenario sukses (*Positive Testing*) maupun skenario validasi *error* (*Negative Testing*).
+* UI/UX: Antarmuka dibangun dengan tampilan bersih menggunakan Tailwind CSS dan dilengkapi notifikasi *pop-up* interaktif dari SweetAlert2.
+* CRUD: Tambah, Hapus, dan Edit buku 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 3. Dokumentasi Visual (Screenshot & ERD)
+Berikut adalah tangkapan layar dari rancangan database, antarmuka aplikasi web, dan pengujian API yang telah dilakukan:
 
-## Learning Laravel
+### Database Design (ERD)
+![ERD BooSho](documentation/ERD/ERD%20BooSho.png)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Tampilan Web Aplikasi
+![Halaman Login](documentation/Screenshots/login.png)
+![Dashboard Admin](documentation/Screenshots/dashboard-admin.png)
+![Katalog & Keranjang User](documentation/Screenshots/katalog-user.png)
+![Form Tambah Buku](documentation/Screenshots/form-tambah.png)
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Daftar Endpoint API (Postman)
+Berikut adalah 10 skenario pengujian API yang telah disusun dan diuji melalui Postman:
+![Daftar Endpoint API](documentation/Screenshots/endpoint-api.png)
+*(Catatan tambahan: File asli hasil Export Collection JSON dari Postman dilampirkan secara lengkap di dalam folder `documentation/Postman API/BooSho API.postman_collection.json` pada repository ini).*
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## 4. Struktur Folder & Database Migrate
+Sistem ini menggunakan struktur standar Laravel dengan pengorganisasian dokumen pendukung sebagai berikut:
+* File rute logika web UI berada di `routes/web.php`.
+* File rute *backend API* berada di `routes/api.php`.
+* Pengendali utama berada di `app/Http/Controllers/AuthController.php` dan `app/Http/Controllers/Api/BookController.php`.
+* Seluruh *file* tampilan web (`.blade.php`) berada di direktori `resources/views/`.
+* Seluruh berkas dokumentasi (Screenshot, ERD, dan Postman JSON) diletakkan rapi pada sub-folder di dalam direktori `documentation/`.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Status Database (Migration Tersedia)
+Database proyek ini sudah terintegrasi penuh menggunakan sistem *Migration* dari Laravel. File migrasi tabel (`users`, `books`, `carts`) tersedia lengkap di dalam direktori `database/migrations/`.
 
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Cara Melakukan Setup Database:**
+1. Salin `env.example` menjadi `.env` dan konfigurasikan nama database MySQL Anda.
+2. Jalankan perintah ini di terminal untuk mengeksekusi migrasi dan membuat tabel secara otomatis:
+   ```bash
+   php artisan migrate
