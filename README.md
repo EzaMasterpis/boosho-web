@@ -14,7 +14,6 @@ Aplikasi ini membagi sistem menjadi dua antarmuka dan hak akses utama:
 * Fitur User: Dapat mendaftar akun baru, *login*, melihat pratinjau buku, memasukkan buku ke dalam Keranjang Belanja, dan melakukan *Checkout* yang akan memotong stok buku di database secara otomatis.
 * Fitur API: Menyediakan 6 *endpoint* RESTful API utama (termasuk fitur pencarian *Search*) yang telah melewati 10 skenario pengujian, baik skenario sukses (*Positive Testing*) maupun skenario validasi *error* (*Negative Testing*).
 * UI/UX: Antarmuka dibangun dengan tampilan bersih menggunakan Tailwind CSS dan dilengkapi notifikasi *pop-up* interaktif dari SweetAlert2.
-* CRUD: Tambah, Hapus, dan Edit buku 
 
 ## 3. Dokumentasi Visual (Screenshot & ERD)
 Berikut adalah tangkapan layar dari rancangan database, antarmuka aplikasi web, dan pengujian API yang telah dilakukan:
